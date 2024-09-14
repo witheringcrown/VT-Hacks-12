@@ -1,34 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react'
 
-function App() {
-  const [currentTime, setCurrentTime] = useState(10);
+const App = withAuthInfo((props) => {
+    const logoutFunction = useLogoutFunction()
+    const { redirectToLoginPage, redirectToSignupPage, redirectToAccountPage } = useRedirectFunctions()
 
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    })
-  }, []);
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>The current time is {currentTime}.</p>
-      </header>
-    </div>
-  );
-}
+    if (props.isLoggedIn) {
+        return (
+            <div>
+                <p>You are logged in as {props.user.email}</p>
+                <button onClick={() => redirectToAccountPage()}>Account</button>
+                <button onClick={() => logoutFunction(true)}>Logout</button>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <p>You are not logged in</p>
+                <button onClick={() => redirectToLoginPage()}>Login</button>
+                <button onClick={() => redirectToSignupPage()}>Signup</button>
+            </div>
+        )
+    }
+})
 
 export default App;
