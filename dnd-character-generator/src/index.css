@@ -1,13 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Roboto";
+  src: url('./Roboto-Regular.ttf');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Rowdies";
+  src: url('./Rowdies-Regular.ttf');
+}
+
+body {
+  background-color: #21181b;
+  text-align: center;
+  font-family: "Roboto"; 
+  color: #f5ffe8;
+}
+
+button{
+  background-color: #ad2f45;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #f5ffe8;
+  font-family: "Roboto"; 
+  font-size: large;
+}
+
+.headings{
+  font-size: x-large;
+  padding: 20px;
+  padding-bottom: 5px;
+  font-family: "Rowdies"; 
+}
+
+.selected{
+  background-color: #781d4f;
+  color: #f5ffe8;
+  padding: 20px;
+}
+
+.textBoxes{
+  padding: 20px;
+  font-family: "Roboto"; 
+}
+
+.buttonGroup{
+  padding: 0px;
+}
+
+.header{
+  background-color: #ad2f45;
+  border-radius: 10px;
+}
+
+.subtitle{
+  padding: 25px;
+  padding-top: 0px;
+}
+
+.title{
+  font-size: 300%;
+  padding: 20px;
+  padding-bottom: 5px;
+  font-family: "Rowdies";
+}
+
+p{
+  padding: 10px;
+  padding-top: 0px;
 }
