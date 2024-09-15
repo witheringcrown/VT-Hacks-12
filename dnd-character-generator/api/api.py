@@ -21,16 +21,22 @@ db = SQLAlchemy(app)
 
 
 class users(db.Model):
-    _id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(32))
-    email = db.Column(db.String(320))
-    loginonly = db.Column(db.Boolean)
+    _ID = db.Column(db.Integer, primary_key=True)
+    Name = db.Column(db.String(32))
+    Email = db.Column(db.String(320))
+    LoginOnly = db.Column(db.Boolean)
+    _Class = db.Column(db.Integer)
+    Location = db.Column(db.String(128))
+    IsInPerson = db.Column(db.Boolean)
     
-    def __init__(self, _id, name, email, loginonly):
-        self._id = _id
-        self.name = name 
-        self.email = email
-        self.loginonly = loginonly
+    def __init__(self, _id, name, email, LoginOnly, _Class):
+        self._ID = _ID
+        self.Name = Name 
+        self.Email = Email
+        self.LoginOnly = LoginOnly
+        self._Class = _Class
+        self.Location = Location
+        self.IsInPerson = IsInPerson
         
 with app.app_context():
     db.create_all()
@@ -106,10 +112,17 @@ def userpage(username):
         return redirect(url_for("mypage"))
      # add in auth function
     else:
-        userpage_private = db.session.execute(db.select(users.loginonly).where(users.name == username)).scalar()
-        userpage_email = db.session.execute(db.select(users.email).where(users.name == username)).scalar()
-        return {"privacy":userpage_private,
-                "email":userpage_email}
+        userpage_Private = db.session.execute(db.select(users.LoginOnly).where(users.Name == username)).scalar()
+        userpage_Email = db.session.execute(db.select(users.Email).where(users.Name == username)).scalar()
+        userpage_Class = db.session.execute(db.select(users._Class).where(users.Name == username)).scalar()
+        userpage_IsInPerson = db.session.execute(db.select(users.IsInPerson).where(users.Name == username)).scalar()
+        userpage_Location = db.session.execute(db.select(users.Location).where(users.Name == username)).scalar()
+            
+        return {"Privacy":userpage_Private,
+                "Email":userpage_Email,
+                "Class":userpage_Class,
+                "IsInPerson":userpage_IsInPerson,
+                "Location":userpage_Location}
         
         
         
