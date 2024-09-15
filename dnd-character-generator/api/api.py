@@ -112,18 +112,23 @@ def userpage(username):
         return redirect(url_for("mypage"))
      # add in auth function
     else:
-        userpage_Private = db.session.execute(db.select(users.LoginOnly).where(users.Name == username)).scalar()
-        userpage_Email = db.session.execute(db.select(users.Email).where(users.Name == username)).scalar()
-        userpage_Class = db.session.execute(db.select(users._Class).where(users.Name == username)).scalar()
-        userpage_IsInPerson = db.session.execute(db.select(users.IsInPerson).where(users.Name == username)).scalar()
-        userpage_Location = db.session.execute(db.select(users.Location).where(users.Name == username)).scalar()
-            
-        return {"Privacy":userpage_Private,
-                "Email":userpage_Email,
-                "Class":userpage_Class,
-                "IsInPerson":userpage_IsInPerson,
-                "Location":userpage_Location}
+        userpage_Exists = db.session.execute(db.select(users.Name).where(users.Name == username)).scalar()
         
+        if userpage_Exists == username:
+            userpage_Private = db.session.execute(db.select(users.LoginOnly).where(users.Name == username)).scalar()
+            userpage_Email = db.session.execute(db.select(users.Email).where(users.Name == username)).scalar()
+            userpage_Class = db.session.execute(db.select(users._Class).where(users.Name == username)).scalar()
+            userpage_IsInPerson = db.session.execute(db.select(users.IsInPerson).where(users.Name == username)).scalar()
+            userpage_Location = db.session.execute(db.select(users.Location).where(users.Name == username)).scalar()
+            
+            return {"valid":True,
+                    "Privacy":userpage_Private,
+                    "Email":userpage_Email,
+                    "Class":userpage_Class,
+                    "IsInPerson":userpage_IsInPerson,
+                    "Location":userpage_Location}
+        else:
+            return {"valid":False}
         
         
             
