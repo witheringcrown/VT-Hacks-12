@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Roboto";
+  src: url('./Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Rowdies";
+  src: url('./Rowdies-Regular.ttf');
+}
+
 body {
   background-color: #21181b;
   text-align: center;
@@ -12,6 +22,15 @@ button{
   border: none;
   cursor: pointer;
   color: #f5ffe8;
+  font-family: "Roboto"; 
+  font-size: large;
+}
+
+.headings{
+  font-size: x-large;
+  padding: 20px;
+  padding-bottom: 5px;
+  font-family: "Rowdies"; 
 }
 
 .selected{
@@ -22,10 +41,11 @@ button{
 
 .textBoxes{
   padding: 20px;
+  font-family: "Roboto"; 
 }
 
 .buttonGroup{
-  padding: 10px;
+  padding: 0px;
 }
 
 .header{
@@ -34,13 +54,15 @@ button{
 }
 
 .subtitle{
-  padding: 10px;
+  padding: 25px;
   padding-top: 0px;
 }
 
-h1{
+.title{
+  font-size: 300%;
   padding: 20px;
-  padding-bottom: 0px;
+  padding-bottom: 5px;
+  font-family: "Rowdies";
 }
 
 p{

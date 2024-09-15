@@ -4,7 +4,7 @@ import Buttons from "./Buttons"
 
 const Location = withAuthInfo((props) => {
     return <div>
-      <h3>Location</h3>
+      <div className='headings'>Location</div>
       <Buttons></Buttons>
     </div>
 })

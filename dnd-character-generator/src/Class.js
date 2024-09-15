@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 
 const Class = withAuthInfo((props) => {
     return <div>
-      <h3>Select Class</h3>
+      <div className='headings'>Select Class</div>
       <Dropdown></Dropdown>
     </div>
 })
