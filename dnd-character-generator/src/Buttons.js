@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import TextEnter from "./TextEnter";
+import City from "./City";
+import State from "./State";
 
 function Buttons() {
     const [value, setValue] = useState("")
@@ -26,7 +27,8 @@ function Buttons() {
                 <button onClick={Remote}>Remote</button>
                 <button onClick={InPerson}>In-Person</button>
                 <p>{value}</p>
-                <TextEnter></TextEnter>
+                <City></City>
+                <State></State>
             </div>
         )
     }

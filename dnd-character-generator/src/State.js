@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function TextEnter() {
-    const [value, setValue] = useState("Enter City")
+function State() {
+    const [value, setValue] = useState("Enter State")
 
     function handleInput(event) {
         setValue(event.target.value);
@@ -15,4 +15,4 @@ function TextEnter() {
     )
 }
 
-export default TextEnter;
+export default State;
