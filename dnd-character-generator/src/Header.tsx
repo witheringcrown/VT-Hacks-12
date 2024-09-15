@@ -1,9 +1,9 @@
 import React from "react";
 
 function Header() {
-    return (<div>
+    return (<div className="header">
         <h1>TinDnDr</h1>
-        <p>find your party today!</p>
+        <div className="subtitle">find your party today!</div>
     </div>
     );
 }

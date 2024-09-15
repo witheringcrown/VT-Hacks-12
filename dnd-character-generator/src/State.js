@@ -10,7 +10,6 @@ function State() {
     return (
         <div>
             <input onChange={handleInput} value = {value}></input>
-            <p>{value}</p>
         </div>
     )
 }

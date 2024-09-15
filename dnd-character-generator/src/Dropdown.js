@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function Dropdown() {
     const [value, setValue] = useState("")
     const options = [
+        {label: "Select", value: 0},
         {label: "Barbarian", value: 1},
         {label: "Bard", value: 2},
         {label: "Cleric", value: 3},
@@ -28,7 +29,6 @@ function Dropdown() {
                     <option value={option.value}>{option.label}</option>
                 )}
             </select>
-            <p>{value}</p>
         </div>
     )
 }

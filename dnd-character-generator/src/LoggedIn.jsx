@@ -9,6 +9,8 @@ const LoggedIn = withAuthInfo((props) => {
             <div>
                 <p>You are logged in as {props.user.email}</p>
                 <button onClick={() => redirectToAccountPage()}>Account</button>
+                &nbsp;
+                &nbsp;
                 <button onClick={() => logoutFunction(true)}>Logout</button>
             </div>
         )
@@ -17,6 +19,8 @@ const LoggedIn = withAuthInfo((props) => {
             <div>
                 <p>You are not logged in</p>
                 <button onClick={() => redirectToLoginPage()}>Login</button>
+                &nbsp;
+                &nbsp;
                 <button onClick={() => redirectToSignupPage()}>Signup</button>
             </div>
         )

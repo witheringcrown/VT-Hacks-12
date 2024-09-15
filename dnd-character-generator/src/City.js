@@ -10,7 +10,6 @@ function City() {
     return (
         <div>
             <input onChange={handleInput} value = {value}></input>
-            <p>{value}</p>
         </div>
     )
 }

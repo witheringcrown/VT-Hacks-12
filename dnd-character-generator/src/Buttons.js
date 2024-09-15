@@ -15,20 +15,24 @@ function Buttons() {
 
     if (value === 1){
         return (
-            <div>
-                <button onClick={Remote}>Remote</button>
+            <div className="buttonGroup">
+                <button onClick={Remote} className="selected">Remote</button>
+                &nbsp;
+                &nbsp;
                 <button onClick={InPerson}>In-Person</button>
-                <p>{value}</p>
             </div>
         )
     } else {
         return (
-            <div>
+            <div className="buttonGroup">
                 <button onClick={Remote}>Remote</button>
-                <button onClick={InPerson}>In-Person</button>
-                <p>{value}</p>
-                <City></City>
-                <State></State>
+                &nbsp;
+                &nbsp;
+                <button onClick={InPerson} className="selected">In-Person</button>
+                <div className="textBoxes">
+                    <City></City>
+                    <State></State>
+                </div>
             </div>
         )
     }
