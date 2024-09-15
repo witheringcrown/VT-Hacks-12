@@ -1,11 +1,25 @@
-import { withAuthInfo } from "@propelauth/react"
+import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react'
 
 const LoggedIn = withAuthInfo((props) => {
-    // isLoggedIn and user are injected automatically from withAuthInfo
+    const logoutFunction = useLogoutFunction()
+    const { redirectToLoginPage, redirectToSignupPage, redirectToAccountPage } = useRedirectFunctions()
+
     if (props.isLoggedIn) {
-        return <p>You are logged in as {props.user.email}</p>
+        return (
+            <div>
+                <p>You are logged in as {props.user.email}</p>
+                <button onClick={() => redirectToAccountPage()}>Account</button>
+                <button onClick={() => logoutFunction(true)}>Logout</button>
+            </div>
+        )
     } else {
-        return <p>You are not logged in</p>
+        return (
+            <div>
+                <p>You are not logged in</p>
+                <button onClick={() => redirectToLoginPage()}>Login</button>
+                <button onClick={() => redirectToSignupPage()}>Signup</button>
+            </div>
+        )
     }
 })
 

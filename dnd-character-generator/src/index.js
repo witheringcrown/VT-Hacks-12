@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Quiz from "./Quiz";
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from "@propelauth/react";
 
@@ -9,6 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <AuthProvider authUrl={"https://93765821396.propelauthtest.com"}>
         <App />
+        <Quiz />
     </AuthProvider>,
     document.getElementById("root")
 );
