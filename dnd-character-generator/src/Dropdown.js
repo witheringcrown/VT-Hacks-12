@@ -15,7 +15,8 @@ function Dropdown() {
         {label: "Rogue", value: 9},
         {label: "Sorcerer", value: 10},
         {label: "Warlock", value: 11},
-        {label: "Wizard", value: 12}
+        {label: "Wizard", value: 12},
+        {label: "Dungeon Master", value: 13}
     ]
 
     function handleSelect(event) {
